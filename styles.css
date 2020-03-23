@@ -70,17 +70,44 @@ form.subscription {
   justify-content: space-between;
 }
 
-input[type='email'] {
+.email {
   width: 66%;
   height: 5.5rem;
   font-size: 1.7rem;
-  opacity: 0.3;
   padding: 1.5rem 2.5rem;
   border-radius: 4rem;
   border: none;
-  box-shadow: 0 0 1px 1.5px var(--gray);
+  position: relative;
+  box-shadow: 0 0 1px 0.2px var(--gray);
 }
-input[type='submit'] {
+span.error-message {
+  position: absolute;
+  top: 37.5rem;
+  left: 50.5rem;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--light-red);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+/* state for email input */
+.email:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2px var(--gray);
+}
+.email:invalid {
+  border: 0.6px solid var(--light-red);
+  box-shadow: 0 0 0 0.2px var(--gray);
+}
+.email:invalid + .error-message {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.submit-button {
   background-color: var(--blue);
   color: rgba(244, 245, 248, 1);
   height: 5.5rem;
@@ -92,7 +119,15 @@ input[type='submit'] {
   margin-left: 1rem;
   border: none;
   box-shadow: 0 4px 12px 1px var(--pale-blue);
+  transition: opacity 0.2s ease;
 }
+
+/* state for button input */
+.submit-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 .dashboard-frame {
   margin: 3rem auto 7rem auto;
 }
@@ -103,7 +138,7 @@ input[type='submit'] {
 }
 
 .social {
-  margin: 2rem auto;
+  margin: 2rem auto 2.5rem auto;
   width: 25%;
   display: flex;
   justify-content: space-evenly;
@@ -117,10 +152,20 @@ input[type='submit'] {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s;
 }
 .social > .icon > i {
   color: var(--blue);
   background-color: var(--blue);
+}
+
+.social > .icon:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.social > .icon:hover > i {
+  color: white;
 }
 
 .attribution {
