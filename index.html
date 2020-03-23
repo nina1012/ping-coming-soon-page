@@ -33,11 +33,18 @@
         </div>
         <form class="subscription">
           <input
+            class="email"
             type="email"
             name="email"
             placeholder="Your email address..."
+            autocomplete="off"
+            title="Please provide a valid email"
           />
-          <input type="submit" value="Notify Me" />
+          <span class="error-message"
+            >Please provide a valid email address</span
+          >
+
+          <input class="submit-button" type="submit" value="Notify Me" />
         </form>
         <div class="dashboard-frame">
           <img
